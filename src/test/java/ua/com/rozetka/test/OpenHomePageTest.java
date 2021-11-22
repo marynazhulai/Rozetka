@@ -4,19 +4,17 @@ package ua.com.rozetka.test;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ua.com.rozetka.pages.AddProductToCardPage;
-import ua.com.rozetka.pages.HomepagePage;
+import ua.com.rozetka.pages.HomePage;
 
 
-public class OpenHomePage extends BaseTest {
+public class OpenHomePageTest extends BaseTest {
     WebDriverWait wait;
-    HomepagePage homepagePage;
+    HomePage homePage;
 
 
-    @Test (description = "verify user is able to log in to app")
-
+    @Test(description = "verify user can open Home Page")
     public void openHomePage() {
-        homepagePage = new HomepagePage(driver);
+        homePage = new HomePage(driver);
         String expectedTitle = "Интернет-магазин ROZETKA™: официальный сайт самого популярного онлайн-гипермаркета в Украине";
         String actualTitle = driver.getTitle();
         Assert.assertEquals(actualTitle, expectedTitle);
