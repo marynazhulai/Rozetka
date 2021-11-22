@@ -1,16 +1,12 @@
 package ua.com.rozetka.test;
-
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ua.com.rozetka.pages.ProductOverviewPage;;
-import ua.com.rozetka.pages.CartPage;
+import ua.com.rozetka.page.ProductOverviewPage;;
+import ua.com.rozetka.page.CartPage;
 
 public class CartPopupClosedTest extends BaseTest {
-    WebDriverWait wait;
-    CartPage cartPage;
-    ProductOverviewPage productOverviewPage;
-
+    private CartPage cartPage;
+    private ProductOverviewPage productOverviewPage;
 
     @Test
     public void addProductToCard() {
@@ -21,9 +17,4 @@ public class CartPopupClosedTest extends BaseTest {
         boolean popupClosed = cartPage.popupClosed();
         Assert.assertEquals(popupClosed, false);
     }
-
-
-
-
-
 }

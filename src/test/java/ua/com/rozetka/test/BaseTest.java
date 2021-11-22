@@ -1,17 +1,13 @@
 package ua.com.rozetka.test;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-
 public class BaseTest {
-
     public static final String BASE_URL = "https://rozetka.com.ua/";
     public WebDriver driver;
-
 
     @BeforeClass
     public void setup() {
@@ -22,8 +18,7 @@ public class BaseTest {
     }
 
     @AfterClass
-    public void tearDown () {
+    public void tearDown() {
         driver.close();
     }
-
 }

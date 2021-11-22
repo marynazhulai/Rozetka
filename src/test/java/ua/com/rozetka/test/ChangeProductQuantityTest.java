@@ -1,19 +1,16 @@
 package ua.com.rozetka.test;
-
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import ua.com.rozetka.pages.CartPage;
-import ua.com.rozetka.pages.ComputersAndNotebooksPage;
-import ua.com.rozetka.pages.HomePage;
-import ua.com.rozetka.pages.ProductOverviewPage;
+import ua.com.rozetka.page.CartPage;
+import ua.com.rozetka.page.ComputersAndNotebooksPage;
+import ua.com.rozetka.page.HomePage;
+import ua.com.rozetka.page.ProductOverviewPage;
 
 public class ChangeProductQuantityTest extends BaseTest {
-    WebDriverWait wait;
-    ProductOverviewPage productOverviewPage;
-    HomePage homePage;
-    CartPage cartPage;
-    ComputersAndNotebooksPage computersAndNotebooksPage;
+    private ProductOverviewPage productOverviewPage;
+    private HomePage homePage;
+    private CartPage cartPage;
+    private ComputersAndNotebooksPage computersAndNotebooksPage;
 
     @Test
     public void changeProductQuantity() throws InterruptedException {

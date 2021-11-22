@@ -1,21 +1,16 @@
-package ua.com.rozetka.pages;
-
+package ua.com.rozetka.page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProductOverviewPage extends AbstractPage {
-
     private WebDriverWait wait;
     public HomePage homePage = new HomePage(driver);
     public ComputersAndNotebooksPage computersAndNotebooksPage = new ComputersAndNotebooksPage(driver);
-
-
     private By productTitle = By.xpath(("//h1[contains(@class, 'product__title')]"));  //++++++++++
     private By productPrice = By.cssSelector(".product-prices__inner.ng-star-inserted"); //+++++++++++++
     private By buyButton = By.cssSelector(".product-buttons app-buy-button");  //+++++++++++++
-
 
     public ProductOverviewPage(WebDriver driver) {
         super(driver);
@@ -38,7 +33,7 @@ public class ProductOverviewPage extends AbstractPage {
         driver.findElement(buyButton).click();
     }
 
-    public void productIsAddedToCart() {
+        public void productIsAddedToCart() {
         homePage.openComputersAndNotebooksCategory();
         computersAndNotebooksPage.clickOnProduct();
         addProductToCart();

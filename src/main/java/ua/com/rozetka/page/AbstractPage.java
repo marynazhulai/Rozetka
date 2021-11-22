@@ -1,5 +1,4 @@
-package ua.com.rozetka.pages;
-
+package ua.com.rozetka.page;
 import org.openqa.selenium.WebDriver;
 
 public abstract class AbstractPage {
@@ -9,5 +8,4 @@ public abstract class AbstractPage {
     public AbstractPage(WebDriver driver) {
         this.driver = driver;
     }
-
 }

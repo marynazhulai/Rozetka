@@ -1,5 +1,4 @@
-package ua.com.rozetka.pages;
-
+package ua.com.rozetka.page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
