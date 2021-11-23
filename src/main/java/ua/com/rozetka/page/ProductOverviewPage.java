@@ -6,11 +6,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProductOverviewPage extends AbstractPage {
     private WebDriverWait wait;
-    public HomePage homePage = new HomePage(driver);
-    public ComputersAndNotebooksPage computersAndNotebooksPage = new ComputersAndNotebooksPage(driver);
-    private By productTitle = By.xpath(("//h1[contains(@class, 'product__title')]"));  //++++++++++
-    private By productPrice = By.cssSelector(".product-prices__inner.ng-star-inserted"); //+++++++++++++
-    private By buyButton = By.cssSelector(".product-buttons app-buy-button");  //+++++++++++++
+    private HomePage homePage = new HomePage(driver);
+    private ComputersAndNotebooksPage computersAndNotebooksPage = new ComputersAndNotebooksPage(driver);
+    private By productTitle = By.xpath(("//h1[contains(@class, 'product__title')]"));
+    private By productPrice = By.cssSelector(".product-prices__inner.ng-star-inserted");
+    private By buyButton = By.cssSelector(".product-buttons app-buy-button");
 
     public ProductOverviewPage(WebDriver driver) {
         super(driver);
