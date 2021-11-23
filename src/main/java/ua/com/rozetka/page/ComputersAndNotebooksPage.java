@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ComputersAndNotebooksPage extends AbstractPage {
     private WebDriverWait wait;
-    private By productInPopularProductsSection = By.xpath("/html/body/app-root/div/div/rz-super-portal/div/main/section/div[2]/rz-dynamic-widgets/rz-widget-goods/div/ul/app-slider/div[1]/div/ul/li[1]/li/app-goods-tile-lite/div/div[2]/a[2]");
+    private By productInPopularProductsSection = By.xpath("(//a[@class='lite-tile__picture'])[1]");
 
     public void clickOnProduct() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(productInPopularProductsSection));
