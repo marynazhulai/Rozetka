@@ -5,15 +5,16 @@ import ua.com.rozetka.page.CartPage;
 import ua.com.rozetka.page.ComputersAndNotebooksPage;
 import ua.com.rozetka.page.HomePage;
 import ua.com.rozetka.page.ProductOverviewPage;
+import util.WebDriverUtil;
 
 public class ChangeProductQuantityTest extends BaseTest {
 
     @Test
     public void changeProductQuantity() throws InterruptedException {
 
-        ProductOverviewPage productOverviewPage = new ProductOverviewPage(driver);
+        ProductOverviewPage productOverviewPage = new ProductOverviewPage(WebDriverUtil.getWebDriver());
         productOverviewPage.productIsAddedToCart();
-        CartPage cartPage = new CartPage(driver);
+        CartPage cartPage = new CartPage(WebDriverUtil.getWebDriver());
         cartPage.addOneMoreProduct();
 
 
