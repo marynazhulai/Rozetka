@@ -7,22 +7,18 @@ import ua.com.rozetka.page.HomePage;
 import ua.com.rozetka.page.ProductOverviewPage;
 
 public class AddProductToCardTest extends BaseTest {
-    private ProductOverviewPage productOverviewPage;
-    private HomePage homePage;
-    private CartPage cartPage;
-    private ComputersAndNotebooksPage computersAndNotebooksPage;
 
     @Test
     public void addProductToCard() {
-        productOverviewPage = new ProductOverviewPage(driver);
-        homePage = new HomePage(driver);
-        cartPage = new CartPage(driver);
-        computersAndNotebooksPage = new ComputersAndNotebooksPage(driver);
+        HomePage homePage = new HomePage(driver);
         homePage.openComputersAndNotebooksCategory();
+        ComputersAndNotebooksPage computersAndNotebooksPage = new ComputersAndNotebooksPage(driver);
         computersAndNotebooksPage.clickOnProduct();
+        ProductOverviewPage productOverviewPage = new ProductOverviewPage(driver);
         String ProductTitleOnProductOverviewPage = productOverviewPage.getProductTitle();
         int productPrice = productOverviewPage.getProductPrice();
         productOverviewPage.addProductToCart();
+        CartPage cartPage = new CartPage(driver);
         String cartTitle = cartPage.getConfirmationPopupTitle();
         Assert.assertEquals(cartTitle, "Корзина");
         String ProductTitleOnCartPage = cartPage.getProductTitleInCart();
