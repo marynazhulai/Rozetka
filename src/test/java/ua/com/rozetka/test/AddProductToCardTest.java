@@ -5,21 +5,20 @@ import ua.com.rozetka.page.CartPage;
 import ua.com.rozetka.page.ComputersAndNotebooksPage;
 import ua.com.rozetka.page.HomePage;
 import ua.com.rozetka.page.ProductOverviewPage;
-import util.WebDriverUtil;
 
 public class AddProductToCardTest extends BaseTest {
 
     @Test
     public void addProductToCard() {
-        HomePage homePage = new HomePage(WebDriverUtil.getDriver());
+        HomePage homePage = new HomePage();
         homePage.openComputersAndNotebooksCategory();
-        ComputersAndNotebooksPage computersAndNotebooksPage = new ComputersAndNotebooksPage(WebDriverUtil.getDriver());
+        ComputersAndNotebooksPage computersAndNotebooksPage = new ComputersAndNotebooksPage();
         computersAndNotebooksPage.clickOnProduct();
-        ProductOverviewPage productOverviewPage = new ProductOverviewPage(WebDriverUtil.getDriver());
+        ProductOverviewPage productOverviewPage = new ProductOverviewPage();
         String ProductTitleOnProductOverviewPage = productOverviewPage.getProductTitle();
         int productPrice = productOverviewPage.getProductPrice();
         productOverviewPage.addProductToCart();
-        CartPage cartPage = new CartPage(WebDriverUtil.getDriver());
+        CartPage cartPage = new CartPage();
         String cartTitle = cartPage.getConfirmationPopupTitle();
         Assert.assertEquals(cartTitle, "Корзина");
         String ProductTitleOnCartPage = cartPage.getProductTitleInCart();

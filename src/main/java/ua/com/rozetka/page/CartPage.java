@@ -1,7 +1,7 @@
 package ua.com.rozetka.page;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import util.WebDriverUtil;
 
 public class CartPage extends AbstractPage {
     private By confirmationPopupTitle = By.cssSelector(".modal__heading");
@@ -14,8 +14,8 @@ public class CartPage extends AbstractPage {
     private By crossIcon = By.cssSelector(".modal__close.ng-star-inserted");
     private By modalWithSpinner = By.xpath("//div[contains(@class, 'modal__holder')] [contains(@class, 'modal__holder_show_animation')]");
 
-    public CartPage(WebDriver driver) {
-        super(driver);
+    public CartPage() {
+        super(WebDriverUtil.getDriver());
     }
 
     public String getConfirmationPopupTitle() {

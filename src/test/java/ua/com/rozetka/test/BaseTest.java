@@ -6,7 +6,6 @@ import util.WebDriverUtil;
 
 public class BaseTest {
 
-
     public static final String BASE_URL = "https://rozetka.com.ua/";
 
     @BeforeClass

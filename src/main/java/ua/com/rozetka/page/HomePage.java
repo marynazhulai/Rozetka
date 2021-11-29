@@ -1,6 +1,6 @@
 package ua.com.rozetka.page;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import util.WebDriverUtil;
 
 public class HomePage extends AbstractPage {
     private By menuCategories = By.xpath("//ul[contains(@class, 'menu-categories')] [contains(@class, 'menu-categories_type_main')]");
@@ -15,7 +15,7 @@ public class HomePage extends AbstractPage {
         driver.findElement(computersAndNotebooksLink).click();
     }
 
-    public HomePage(WebDriver driver) {
-        super(driver);
+    public HomePage() {
+        super(WebDriverUtil.getDriver());
     }
 }
