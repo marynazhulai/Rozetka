@@ -4,8 +4,6 @@ import org.testng.annotations.BeforeClass;
 import util.WebDriverUtil;
 
 
-
-
 public class BaseTest {
 
 
@@ -13,12 +11,13 @@ public class BaseTest {
 
     @BeforeClass
     public void setup() {
+        WebDriverUtil.setDriver();
+        WebDriverUtil.getDriver().get(BASE_URL);
         WebDriverUtil.initWebDriver();
-        WebDriverUtil.getWebDriver().get(BASE_URL);
     }
 
     @AfterClass
     public void tearDown() {
-        WebDriverUtil.closeDriver();
+        WebDriverUtil.closeBrowser();
     }
 }

@@ -9,9 +9,9 @@ public class CartPopupClosedTest extends BaseTest {
 
     @Test
     public void addProductToCard() {
-        ProductOverviewPage productOverviewPage = new ProductOverviewPage(WebDriverUtil.getWebDriver());
+        ProductOverviewPage productOverviewPage = new ProductOverviewPage(WebDriverUtil.getDriver());
         productOverviewPage.productIsAddedToCart();
-        CartPage cartPage = new CartPage(WebDriverUtil.getWebDriver());
+        CartPage cartPage = new CartPage(WebDriverUtil.getDriver());
         cartPage.clickOnCrossIcon();
         boolean popupClosed = cartPage.popupClosed();
         Assert.assertEquals(popupClosed, false);

@@ -12,9 +12,9 @@ public class ChangeProductQuantityTest extends BaseTest {
     @Test
     public void changeProductQuantity() throws InterruptedException {
 
-        ProductOverviewPage productOverviewPage = new ProductOverviewPage(WebDriverUtil.getWebDriver());
+        ProductOverviewPage productOverviewPage = new ProductOverviewPage(WebDriverUtil.getDriver());
         productOverviewPage.productIsAddedToCart();
-        CartPage cartPage = new CartPage(WebDriverUtil.getWebDriver());
+        CartPage cartPage = new CartPage(WebDriverUtil.getDriver());
         cartPage.addOneMoreProduct();
 
 

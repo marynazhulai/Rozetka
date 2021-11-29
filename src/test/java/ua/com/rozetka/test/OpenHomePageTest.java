@@ -8,7 +8,7 @@ public class OpenHomePageTest extends BaseTest {
 
     @Test(description = "verify user can open Home Page")
     public void openHomePage() {
-        HomePage homePage = new HomePage(WebDriverUtil.getWebDriver());
+        HomePage homePage = new HomePage(WebDriverUtil.getDriver());
         boolean homePageIsOpened = homePage.menuCategoriesIsDisplayed();
         Assert.assertEquals(homePageIsOpened, true);
     }

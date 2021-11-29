@@ -11,15 +11,15 @@ public class AddProductToCardTest extends BaseTest {
 
     @Test
     public void addProductToCard() {
-        HomePage homePage = new HomePage(WebDriverUtil.getWebDriver());
+        HomePage homePage = new HomePage(WebDriverUtil.getDriver());
         homePage.openComputersAndNotebooksCategory();
-        ComputersAndNotebooksPage computersAndNotebooksPage = new ComputersAndNotebooksPage(WebDriverUtil.getWebDriver());
+        ComputersAndNotebooksPage computersAndNotebooksPage = new ComputersAndNotebooksPage(WebDriverUtil.getDriver());
         computersAndNotebooksPage.clickOnProduct();
-        ProductOverviewPage productOverviewPage = new ProductOverviewPage(WebDriverUtil.getWebDriver());
+        ProductOverviewPage productOverviewPage = new ProductOverviewPage(WebDriverUtil.getDriver());
         String ProductTitleOnProductOverviewPage = productOverviewPage.getProductTitle();
         int productPrice = productOverviewPage.getProductPrice();
         productOverviewPage.addProductToCart();
-        CartPage cartPage = new CartPage(WebDriverUtil.getWebDriver());
+        CartPage cartPage = new CartPage(WebDriverUtil.getDriver());
         String cartTitle = cartPage.getConfirmationPopupTitle();
         Assert.assertEquals(cartTitle, "Корзина");
         String ProductTitleOnCartPage = cartPage.getProductTitleInCart();

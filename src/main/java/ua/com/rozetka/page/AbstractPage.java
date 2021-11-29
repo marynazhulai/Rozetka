@@ -10,7 +10,7 @@ public abstract class AbstractPage {
     protected WebDriverWait wait;
 
     public AbstractPage(WebDriver driver) {
-        this.driver =  WebDriverUtil.getWebDriver();
+        this.driver =  WebDriverUtil.getDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(TIME_OUT));
     }
 }
