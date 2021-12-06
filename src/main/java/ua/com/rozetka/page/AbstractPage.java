@@ -9,7 +9,7 @@ public abstract class AbstractPage {
     protected final int TIME_OUT = 15;
     protected WebDriverWait wait;
 
-    public AbstractPage(WebDriver driver) {
+    public AbstractPage() {
         this.driver = WebDriverUtil.getDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(TIME_OUT));
     }

@@ -1,15 +1,16 @@
 package ua.com.rozetka.page;
-import org.openqa.selenium.By;
-import util.WebDriverUtil;
+import com.sun.org.slf4j.internal.Logger;
+import com.sun.org.slf4j.internal.LoggerFactory;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class ComputersAndNotebooksPage extends AbstractPage {
-    private By productInPopularProductsSection = By.xpath("(//a[@class='lite-tile__picture'])[1]");
+    @FindBy (xpath = "//a[@class='lite-tile__picture'])[1])")
+    private WebElement productInPopularProductsSection;
+    private static final Logger LOG = LoggerFactory.getLogger(ComputersAndNotebooksPage.class);
 
     public void clickOnProduct() {
-        driver.findElement(productInPopularProductsSection).click();
-    }
-
-    public ComputersAndNotebooksPage() {
-        super(WebDriverUtil.getDriver());
+        LOG.info("Click on Product on Computers and Notebooks page");
+        productInPopularProductsSection.click();
     }
 }

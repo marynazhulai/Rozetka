@@ -5,10 +5,9 @@ import ua.com.rozetka.page.HomePage;
 
 public class OpenHomePageTest extends BaseTest {
 
-    @Test(description = "verify user can open Home Page")
+    @Test(description = "verify Home Page is opened")
     public void openHomePage() {
         HomePage homePage = new HomePage();
-        boolean homePageIsOpened = homePage.menuCategoriesIsDisplayed();
-        Assert.assertEquals(homePageIsOpened, true);
+        Assert.assertTrue(homePage.isMenuCategoriesDisplayed(), "Menu 'Categories' is not displayed");
     }
 }

@@ -5,28 +5,28 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 public final class WebDriverUtil {
-    private static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
-
-    public static void setDriver() {
-        WebDriverManager.chromedriver().setup();
-        driver.set(new ChromeDriver());
-    }
-
-    public static WebDriver getDriver() {
-        return driver.get();
-    }
-
-    public static void closeBrowser() {
-        driver.get().close();
-        driver.remove();
-    }
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     public static void initWebDriver() {
+        LOG.info("Open browser");
         WebDriverManager.chromedriver().setup();
-        WebDriverUtil.getDriver();
+        if(driver.get() == null){
+        driver.set(new ChromeDriver());
+        }
         WebDriverUtil.getDriver().manage().window().maximize();
         WebDriverUtil.getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
         WebDriverUtil.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         WebDriverUtil.getDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(5));
+    }
+
+    public static WebDriver getDriver() {
+        LOG.info("Get driver");
+        return driver.get();
+    }
+
+    public static void closeBrowser() {
+        LOG.info("Close browser");
+        driver.get().quit();
+        driver.remove();
     }
 }

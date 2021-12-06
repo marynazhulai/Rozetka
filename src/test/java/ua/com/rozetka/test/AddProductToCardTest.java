@@ -15,17 +15,13 @@ public class AddProductToCardTest extends BaseTest {
         ComputersAndNotebooksPage computersAndNotebooksPage = new ComputersAndNotebooksPage();
         computersAndNotebooksPage.clickOnProduct();
         ProductOverviewPage productOverviewPage = new ProductOverviewPage();
-        String ProductTitleOnProductOverviewPage = productOverviewPage.getProductTitle();
+        String productTitleOnProductOverviewPage = productOverviewPage.getProductTitle();
         int productPrice = productOverviewPage.getProductPrice();
         productOverviewPage.addProductToCart();
         CartPage cartPage = new CartPage();
-        String cartTitle = cartPage.getConfirmationPopupTitle();
-        Assert.assertEquals(cartTitle, "Корзина");
-        String ProductTitleOnCartPage = cartPage.getProductTitleInCart();
-        Assert.assertEquals(ProductTitleOnCartPage, ProductTitleOnProductOverviewPage);
-        int subtotalSumInCart = cartPage.getSubtotalSumInCart();
-        int totalSumInCart = cartPage.getTotalSumInCart();
-        Assert.assertEquals(subtotalSumInCart, productPrice);
-        Assert.assertEquals(totalSumInCart, productPrice);
+        Assert.assertEquals(cartPage.getConfirmationPopupTitle(), "Корзина", "Cart title not match");
+        Assert.assertEquals(cartPage.getProductTitleInCart(), productTitleOnProductOverviewPage);
+        Assert.assertEquals(cartPage.getSubtotalSumInCart(), productPrice, "Subtotal Sum in cart incorrect");
+        Assert.assertEquals(cartPage.getTotalSumInCart(), productPrice, "Total Sum in cart incorrect");
     }
 }

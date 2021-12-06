@@ -10,8 +10,11 @@ public class AddProductToCartBO {
     private ProductOverviewPage productOverviewPage = new ProductOverviewPage();
 
     public void addProductToCartFromComputersAndNotebooks() {
+        LOG.info("Open Computers and Notebooks category");
         homePage.openComputersAndNotebooksCategory();
+        LOG.info("Click on Product on Computers and Notebooks page");
         computersAndNotebooksPage.clickOnProduct();
+        LOG.info("Add product to cart");
         productOverviewPage.addProductToCart();
     }
 

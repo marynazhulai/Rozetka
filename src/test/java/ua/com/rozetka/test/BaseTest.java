@@ -10,9 +10,8 @@ public class BaseTest {
 
     @BeforeClass
     public void setup() {
-        WebDriverUtil.setDriver();
-        WebDriverUtil.getDriver().get(BASE_URL);
         WebDriverUtil.initWebDriver();
+        WebDriverUtil.getDriver().get(BASE_URL);
     }
 
     @AfterClass
