@@ -14,14 +14,10 @@ public class ChangeProductQuantityTest extends BaseTest {
         addProductToCartBO.addProductToCartFromComputersAndNotebooks();
         CartPage cartPage = new CartPage();
         cartPage.addOneMoreProduct();
-        //int countOfProduct = cartPage.getCountOfProduct();
         Assert.assertEquals(cartPage.getCountOfProduct(), 2, "Count of product doesn`t match");
         ProductOverviewPage productOverviewPage = new ProductOverviewPage();
-        //int productPrice = productOverviewPage.getProductPrice();
-        //int recalculatedSubtotal = productOverviewPage.getProductPrice() * countOfProduct;
         int expectedSubtotal = productOverviewPage.getProductPrice() * 2;
         Assert.assertEquals(productOverviewPage.getProductPrice() * cartPage.getCountOfProduct(), expectedSubtotal, "Subtotal in cart doesn`t match");
-        //int recalculatedTotalSumInCart = cartPage.getTotalSumInCart();
         Assert.assertEquals(cartPage.getTotalSumInCart(), expectedSubtotal, "Total in cart doesn`t match");
     }
 }

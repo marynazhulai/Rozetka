@@ -1,17 +1,17 @@
 package ua.com.rozetka.page;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ProductOverviewPage extends AbstractPage {
-    @FindBy (xpath = "//h1[contains(@class, 'product__title')]")
+    @FindBy(xpath = "//h1[contains(@class, 'product__title')]")
     private WebElement productTitle;
-    @FindBy (css = ".product-prices__inner.ng-star-inserted")
+    @FindBy(css = ".product-prices__inner.ng-star-inserted")
     private WebElement productPrice;
-    @FindBy (css = ".product-buttons app-buy-button")
+    @FindBy(css = ".product-buttons app-buy-button")
     private WebElement buyButton;
-    private static final Logger LOG = LoggerFactory.getLogger(ProductOverviewPage.class);
+    private static final Logger LOG = LogManager.getLogger(ProductOverviewPage.class);
 
     public String getProductTitle() {
         LOG.info("Get product title");

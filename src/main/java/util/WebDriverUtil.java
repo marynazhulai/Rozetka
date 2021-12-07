@@ -1,17 +1,20 @@
 package util;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 public final class WebDriverUtil {
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    private static final Logger LOG = LogManager.getLogger(WebDriverUtil.class);
 
     public static void initWebDriver() {
         LOG.info("Open browser");
         WebDriverManager.chromedriver().setup();
-        if(driver.get() == null){
-        driver.set(new ChromeDriver());
+        if (driver.get() == null) {
+            driver.set(new ChromeDriver());
         }
         WebDriverUtil.getDriver().manage().window().maximize();
         WebDriverUtil.getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));

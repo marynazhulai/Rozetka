@@ -1,5 +1,4 @@
 package ua.com.rozetka.test;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ua.com.rozetka.business.object.AddProductToCartBO;

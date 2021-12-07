@@ -1,7 +1,6 @@
 package ua.com.rozetka.page;
-
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
@@ -9,26 +8,24 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-
 public class CartPage extends AbstractPage {
-    private static final Logger LOG = LoggerFactory.getLogger(CartPage.class);
+    private static final Logger LOG = LogManager.getLogger(CartPage.class);
 
-    @FindBy (css = ".modal__heading")
+    @FindBy(css = ".modal__heading")
     private WebElement confirmationPopupTitle;
-    @FindBy (css = ".cart-product__title")
+    @FindBy(css = ".cart-product__title")
     private WebElement productTitleInCart;
-    @FindBy (css = ".cart-product__coast.ng-star-inserted")
+    @FindBy(css = ".cart-product__coast.ng-star-inserted")
     private WebElement productSubtotal;
-    @FindBy (css = ".cart-receipt__sum-price")
+    @FindBy(css = ".cart-receipt__sum-price")
     private WebElement totalSumInCart;
-    @FindBy (css = "[aria-label='Добавить ещё один товар']")
+    @FindBy(css = "[aria-label='Добавить ещё один товар']")
     private WebElement plusIcon;
-    @FindBy (css = "input.cart-counter__input")
+    @FindBy(css = "input.cart-counter__input")
     private WebElement productQuantity;
-    @FindBy (css = ".modal__close.ng-star-inserted")
+    @FindBy(css = ".modal__close.ng-star-inserted")
     private WebElement crossIcon;
-    @FindBy (xpath = "//div[contains(@class, 'modal__holder')] [contains(@class, 'modal__holder_show_animation')]")
-    private WebElement modalWithSpinner;
+    private By modalWithSpinner = By.xpath("//div[contains(@class, 'modal__holder')] [contains(@class, 'modal__holder_show_animation')]");
 
     public String getConfirmationPopupTitle() {
         LOG.info("Get confirmation popup title");
@@ -78,7 +75,7 @@ public class CartPage extends AbstractPage {
 
     private void waitForSpinnerNotDisplayed() {
         try {
-            wait.until(ExpectedConditions.invisibilityOfElementLocated((By) modalWithSpinner));
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(modalWithSpinner));
         } catch (TimeoutException ex) {
             LOG.warn("Spinner is not displayed", ex);
         }
