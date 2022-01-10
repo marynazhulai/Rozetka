@@ -1,10 +1,9 @@
 package ua.com.rozetka.page;
+
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -15,15 +14,15 @@ public class CartPage extends AbstractPage {
     private WebElement confirmationPopupTitle;
     @FindBy(css = ".cart-product__title")
     private WebElement productTitleInCart;
-    @FindBy(css = ".cart-product__coast.ng-star-inserted")
+    @FindBy(xpath = "//div/p[ contains(@class, 'cart-product__price')]")
     private WebElement productSubtotal;
     @FindBy(css = ".cart-receipt__sum-price")
     private WebElement totalSumInCart;
-    @FindBy(css = "[aria-label='Добавить ещё один товар']")
+    @FindBy (css = "[aria-label='Добавить ещё один товар']")
     private WebElement plusIcon;
     @FindBy(css = "input.cart-counter__input")
     private WebElement productQuantity;
-    @FindBy(css = ".modal__close.ng-star-inserted")
+    @FindBy(css = ".modal__close")
     private WebElement crossIcon;
     private By modalWithSpinner = By.xpath("//div[contains(@class, 'modal__holder')] [contains(@class, 'modal__holder_show_animation')]");
 
@@ -36,7 +35,7 @@ public class CartPage extends AbstractPage {
         LOG.info("Get product title in cart");
         return productTitleInCart.getText();
     }
-
+    @Step ("gggggggggggggggggggggggggggggggggggggggggggggg")
     public int getSubtotalSumInCart() {
         LOG.info("Get Subtotal sum in cart");
         return Integer.parseInt(productSubtotal.getText().replaceAll("[^0-9]", ""));
@@ -49,7 +48,9 @@ public class CartPage extends AbstractPage {
 
     public void addOneMoreProduct() {
         LOG.info("Click on plus icon in cart to add more product");
-        plusIcon.click();
+        WebElement element = plusIcon;
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        executor.executeScript("arguments[0].click();", element);
     }
 
     public int getCountOfProduct() {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="INFO">
+<Configuration packages="ua.com.rozetka.appender" name="MapAppender" status="INFO"> <!--добавила пекедж, нейм, а статус не міняла на ворн-->
     <Appenders>
+        <MapAppender name="MapAppender" />  <!--добавила-->
         <Console name="ConsoleAppender" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
         </Console>
@@ -12,6 +13,7 @@
         <Root level="debug">
             <AppenderRef ref="ConsoleAppender" />
             <AppenderRef ref="FileAppender"/>
+            <AppenderRef ref="MapAppender" /><!--добавила-->
         </Root>
     </Loggers>
 </Configuration>

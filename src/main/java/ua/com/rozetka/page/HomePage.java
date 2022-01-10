@@ -5,11 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends AbstractPage {
+    private static final Logger LOG = LogManager.getLogger(HomePage.class);
+
     @FindBy(xpath = "//ul[contains(@class, 'menu-categories')] [contains(@class, 'menu-categories_type_main')]")
     private WebElement menuCategories;
     @FindBy(xpath = "//*[contains(@class, 'menu-categories_type_main')]//a[contains(@href, 'computers-notebooks')]")
     private WebElement computersAndNotebooksLink;
-    private static final Logger LOG = LogManager.getLogger(HomePage.class);
 
     public boolean isMenuCategoriesDisplayed() {
         LOG.info("Menu Categories is displayed");

@@ -23,7 +23,7 @@ public final class WebDriverUtil {
     }
 
     public static WebDriver getDriver() {
-        LOG.info("Get driver");
+        LOG.debug("Get driver");
         return driver.get();
     }
 

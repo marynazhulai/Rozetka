@@ -1,30 +1,38 @@
 package ua.com.rozetka.page;
+
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class ProductOverviewPage extends AbstractPage {
+    private static final Logger LOG = LogManager.getLogger(ProductOverviewPage.class);
+
     @FindBy(xpath = "//h1[contains(@class, 'product__title')]")
     private WebElement productTitle;
-    @FindBy(css = ".product-prices__inner.ng-star-inserted")
+    @FindBy(xpath = "//div/p[ contains(@class, 'product-prices__big')]")
     private WebElement productPrice;
     @FindBy(css = ".product-buttons app-buy-button")
     private WebElement buyButton;
-    private static final Logger LOG = LogManager.getLogger(ProductOverviewPage.class);
 
+    @Step("ddddddddddddddddddddddddddddddddddddddddddddddd")
     public String getProductTitle() {
         LOG.info("Get product title");
         return productTitle.getAttribute("innerText");
     }
 
+    @Step ("sssssssssssssssssssssssssssssssssssssssssssssss")
     public int getProductPrice() {
         LOG.info("Get product price");
         return Integer.parseInt(productPrice.getAttribute("innerText").replaceAll("[^0-9]", ""));
     }
 
+    @Step ("gggggggggggggggggggggggggggggggggggggggggggggg")
     public void addProductToCart() {
         LOG.info("Add product to cart");
-        buyButton.click();
+        WebElement element = buyButton;
+        new Actions(driver).moveToElement(element).click().perform();
     }
 }
