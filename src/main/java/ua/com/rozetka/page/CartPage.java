@@ -1,6 +1,5 @@
 package ua.com.rozetka.page;
 
-import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
@@ -35,7 +34,7 @@ public class CartPage extends AbstractPage {
         LOG.info("Get product title in cart");
         return productTitleInCart.getText();
     }
-    @Step ("gggggggggggggggggggggggggggggggggggggggggggggg")
+
     public int getSubtotalSumInCart() {
         LOG.info("Get Subtotal sum in cart");
         return Integer.parseInt(productSubtotal.getText().replaceAll("[^0-9]", ""));
@@ -49,7 +48,7 @@ public class CartPage extends AbstractPage {
     public void addOneMoreProduct() {
         LOG.info("Click on plus icon in cart to add more product");
         WebElement element = plusIcon;
-        JavascriptExecutor executor = (JavascriptExecutor)driver;
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", element);
     }
 

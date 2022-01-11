@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration packages="ua.com.rozetka.appender" name="MapAppender" status="INFO"> <!--добавила пекедж, нейм, а статус не міняла на ворн-->
+<Configuration packages="ua.com.rozetka.appender" name="MapAppender" status="INFO">
     <Appenders>
-        <MapAppender name="MapAppender" />  <!--добавила-->
+        <MapAppender name="MapAppender"/>
         <Console name="ConsoleAppender" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
         <File name="FileAppender" fileName="application-${date:yyyyMMdd}.log" immediateFlush="false" append="true">
             <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
@@ -11,9 +11,9 @@
     </Appenders>
     <Loggers>
         <Root level="debug">
-            <AppenderRef ref="ConsoleAppender" />
+            <AppenderRef ref="ConsoleAppender"/>
             <AppenderRef ref="FileAppender"/>
-            <AppenderRef ref="MapAppender" /><!--добавила-->
+            <AppenderRef ref="MapAppender"/>
         </Root>
     </Loggers>
 </Configuration>

@@ -1,6 +1,5 @@
 package ua.com.rozetka.page;
 
-import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -17,19 +16,16 @@ public class ProductOverviewPage extends AbstractPage {
     @FindBy(css = ".product-buttons app-buy-button")
     private WebElement buyButton;
 
-    @Step("ddddddddddddddddddddddddddddddddddddddddddddddd")
     public String getProductTitle() {
         LOG.info("Get product title");
         return productTitle.getAttribute("innerText");
     }
 
-    @Step ("sssssssssssssssssssssssssssssssssssssssssssssss")
     public int getProductPrice() {
         LOG.info("Get product price");
         return Integer.parseInt(productPrice.getAttribute("innerText").replaceAll("[^0-9]", ""));
     }
 
-    @Step ("gggggggggggggggggggggggggggggggggggggggggggggg")
     public void addProductToCart() {
         LOG.info("Add product to cart");
         WebElement element = buyButton;
