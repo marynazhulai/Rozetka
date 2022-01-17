@@ -1,10 +1,13 @@
 package ua.com.rozetka.test;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import ua.com.rozetka.business.object.AddProductToCartBO;
+import ua.com.rozetka.listener.ListenerTest;
 import ua.com.rozetka.page.CartPage;
 
-public class CartPopupClosedTest extends BaseTest {
+@Listeners(ListenerTest.class)
+public class CartPopupClosedTest extends BaseTest  {
 
     @Test
     public void cartPopupClosed() {
@@ -14,4 +17,6 @@ public class CartPopupClosedTest extends BaseTest {
         cartPage.clickOnCrossIcon();
         Assert.assertFalse(cartPage.isPopupClosed(),"Cart popup window is not closed");
     }
+
+
 }

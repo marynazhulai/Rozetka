@@ -1,11 +1,15 @@
 package ua.com.rozetka.test;
+
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import ua.com.rozetka.listener.ListenerTest;
 import ua.com.rozetka.page.CartPage;
 import ua.com.rozetka.page.ComputersAndNotebooksPage;
 import ua.com.rozetka.page.HomePage;
 import ua.com.rozetka.page.ProductOverviewPage;
 
+@Listeners(ListenerTest.class)
 public class AddProductToCardTest extends BaseTest {
 
     @Test

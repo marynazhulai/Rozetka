@@ -1,5 +1,4 @@
 package ua.com.rozetka.page;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
@@ -9,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class CartPage extends AbstractPage {
     private static final Logger LOG = LogManager.getLogger(CartPage.class);
 
-    @FindBy(css = ".modal__heading")
+    @FindBy(xpath = "//div[@class='modal__header']/h3[@class='modal__heading']")
     private WebElement confirmationPopupTitle;
     @FindBy(css = ".cart-product__title")
     private WebElement productTitleInCart;
@@ -17,17 +16,17 @@ public class CartPage extends AbstractPage {
     private WebElement productSubtotal;
     @FindBy(css = ".cart-receipt__sum-price")
     private WebElement totalSumInCart;
-    @FindBy (css = "[aria-label='Добавить ещё один товар']")
+    @FindBy (xpath = "//button[.//*[@*='#icon-plus']]")
     private WebElement plusIcon;
     @FindBy(css = "input.cart-counter__input")
     private WebElement productQuantity;
     @FindBy(css = ".modal__close")
     private WebElement crossIcon;
-    private By modalWithSpinner = By.xpath("//div[contains(@class, 'modal__holder')] [contains(@class, 'modal__holder_show_animation')]");
+    private By modalWithSpinner = By.xpath("//div[contains(@class, 'modal__holder')]");
 
     public String getConfirmationPopupTitle() {
         LOG.info("Get confirmation popup title");
-        return confirmationPopupTitle.getText();
+        return confirmationPopupTitle.getAttribute("innerText");
     }
 
     public String getProductTitleInCart() {
